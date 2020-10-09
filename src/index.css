@@ -13,16 +13,28 @@ code {
 }
 
 .main-content{
-  min-height: 89vh;
-  width:1160px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 1160px;
   margin: 0 auto;
-  text-align: left;
+}
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
 .main-menu{
   color: white;
   position: relative;
-  padding:12px;
+  padding:18px 0;
 }
 
 .main-menu:hover > #nav {
@@ -39,7 +51,7 @@ code {
   list-style: none inside;
   position: absolute;
   right:0px;
-  top:46px;
+  top:55px;
   display:none;
   margin: 0;
   padding: 0;
@@ -47,15 +59,12 @@ code {
 }
 
 #nav li {
-  /* display: block; */
   position: relative;
   list-style: none;
   text-align: left;
   padding: 14px 15px;
   cursor:pointer;
-  /* float: left; */
   background: #24af15;
-  /* menu background color */
 }
 
 #nav > li::after  {
@@ -72,34 +81,24 @@ code {
   width: 200px;
   text-transform: capitalize;
   color: #ffffff;
-  /* list item font color */
 }
 
-/* #nav li li a {
-  font-size: 80%;
-} */
 
-/* smaller font size for sub menu items */
 
 #nav li:hover {
   background: #003f20;
 }
-
-/* highlights current hovered list item and the parent list items when hovering over sub menues */
 
 #nav ul {
   position: absolute;
   padding: 0;
   left: 0;
   display: none;
-  /* hides sublists */
 }
 
 #nav li:hover ul ul {
   display: none;
 }
-
-/* hides sub-sublists */
 
 #nav li:hover ul {
   display: block;
@@ -108,15 +107,10 @@ code {
   top:0px
 }
 
-/* shows sublist on hover */
-
 #nav li li:hover ul {
   display: block;
-  /* shows sub-sublist on hover */
   margin-left: 200px;
-  /* this should be the same width as the parent list item */
   margin-top: -35px;
-  /* aligns top of sub menu with top of list item */
 }
 
 
@@ -128,33 +122,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Float four columns side by side */
 .column {
   float: left;
   width: 25%;
   padding: 0 10px;
 }
 
-/* Remove extra left and right margins, due to padding in columns */
 .row {margin: 0 -5px;}
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
   margin-bottom:16px;
+  cursor: pointer;
 }
 
-/* Responsive columns - one column layout (vertical) on small screens */
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;

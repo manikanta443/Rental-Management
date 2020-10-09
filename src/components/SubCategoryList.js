@@ -10,15 +10,12 @@ function CategoryList() {
   const [suCategoryDetails, setSubCategoryDetails] = useState({});
 
   useEffect(() => {
-    console.log("useEffect called");
     setCategoryDetails({...categoryDetails,...myparam});
   },[myparam]);
   
   useEffect(() => {
     const getSubCategories = async() => {
       const locations = data.data.locations;
-      debugger;
-    
       const branchObj = locations && await locations.find(location => location.name === categoryDetails.locationName);
       const categoryObj  = branchObj &&  await branchObj.branches.find(branch => branch.name === categoryDetails.branchName);
       const subCategoryObj= categoryObj &&  await categoryObj.categories.find(category => category.name === categoryDetails.categoryName);
@@ -30,15 +27,15 @@ function CategoryList() {
 
   return (
     <div>
-        <h3>Equipment Catalog / Booms</h3>
-        <div class="row">
+      <h3>Equipment Catalog / {categoryDetails.categoryName}</h3>
+      <div className="row">
         {
-           suCategoryDetails && Array.isArray(suCategoryDetails.subcategories)  && suCategoryDetails.subcategories.map(subcategory => {
-             return (
-              <div class="column">
-                <div class="card">
+            suCategoryDetails && Array.isArray(suCategoryDetails.subcategories)  && suCategoryDetails.subcategories.map(subcategory => {
+              return (
+              <div className="column" key={subcategory.name}>
+                <div className="card">
                 <img src={`../../images/subcategory/${subcategory.image}`} alt="Avatar" style={{width:'100%'}} />
-                  <div class="container">
+                  <div className="container">
                     {subcategory.name}
                   </div>
                 </div>
@@ -46,7 +43,7 @@ function CategoryList() {
             )
           })
         }
-        </div>
+      </div>
     </div>
   );
 }

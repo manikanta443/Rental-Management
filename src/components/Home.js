@@ -1,12 +1,10 @@
 import React from 'react';
 
-function Home(props) {
-    console.log(props,"Home .........");
+function Home() {
   return (
-    <div>
-      <header className="">
-        <div>Renatal Management System</div>
-      </header>
+    <div className="content">
+      <h3>Welcome to Renatal Management System</h3>
+      <p>Please select the location</p>
     </div>
   );
 }
